@@ -49,6 +49,7 @@ router.post('/uploadFile', upload.single('file'), (req, res, next) => {
     if (file) {
         var fileNameArr = file.originalname.split('.');
         var suffix = fileNameArr[fileNameArr.length - 1];
+        var fileName = fileNameArr[fileNameArr.length - 2];
     }
     res.send(file);
 })
