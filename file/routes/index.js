@@ -59,6 +59,7 @@ router.post('/uploadFile', upload.single('file'), (req, res, next) => {
 
 router.use('/downloadFile', (req, res, next) => {
     var filename = req.query.filename;
+    var oldName = req.query.oldname;
 })
 
 
