@@ -56,4 +56,10 @@ router.post('/uploadFile', upload.single('file'), (req, res, next) => {
     }
     res.send(file);
 })
+
+router.use('/downloadFile', (req, res, next) => {
+    var filename = req.query.filename;
+})
+
+
 module.exports = router;
