@@ -50,6 +50,8 @@ router.post('/uploadFile', upload.single('file'), (req, res, next) => {
         var fileNameArr = file.originalname.split('.');
         var suffix = fileNameArr[fileNameArr.length - 1];
         var fileName = fileNameArr[fileNameArr.length - 2];
+        // 文件重命名
+        fs.renameSync('./upload/' + file.filename, `./upload/${fileName}.${suffix}`);
     }
     res.send(file);
 })
