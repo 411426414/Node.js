@@ -65,6 +65,7 @@ router.use('/downloadFile', (req, res, next) => {
         'Content-Type': 'application/octet-stream',//告诉浏览器这是一个二进制文件
         'Content-Disposition': 'attachment; filename=' + encodeURI(oldName),//告诉浏览器这是一个需要下载的文件
     });//设置响应头
+    var readStream = fs.createReadStream(file);//得到文件输入流
 })
 
 
