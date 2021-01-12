@@ -69,6 +69,9 @@ router.use('/downloadFile', (req, res, next) => {
     readStream.on('data', (chunk) => {
         res.write(chunk, 'binary');//文档内容以二进制的格式写到response的输出流
     });
+    readStream.on('end', () => {
+        res.end();
+    })
 })
 
 
