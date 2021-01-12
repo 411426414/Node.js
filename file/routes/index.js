@@ -61,7 +61,9 @@ router.use('/downloadFile', (req, res, next) => {
     var filename = req.query.filename;
     var oldName = req.query.oldname;
     var file = './uploads/' + filename;
-    res.writeHead(200, {});//设置响应头
+    res.writeHead(200, {
+        'Content-Type': 'application/octet-stream',//告诉浏览器这是一个二进制文件
+    });//设置响应头
 })
 
 
