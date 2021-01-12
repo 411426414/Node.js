@@ -61,6 +61,7 @@ router.use('/downloadFile', (req, res, next) => {
     var filename = req.query.filename;
     var oldName = req.query.oldname;
     var file = './uploads/' + filename;
+    res.writeHead(200, {});//设置响应头
 })
 
 
