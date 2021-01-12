@@ -66,6 +66,9 @@ router.use('/downloadFile', (req, res, next) => {
         'Content-Disposition': 'attachment; filename=' + encodeURI(oldName),//告诉浏览器这是一个需要下载的文件
     });//设置响应头
     var readStream = fs.createReadStream(file);//得到文件输入流
+    readStream.on('data', (chunk) => {
+        res.write(chunk, 'binary');//文档内容以二进制的格式写到response的输出流
+    });
 })
 
 
