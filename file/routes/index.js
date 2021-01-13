@@ -11,9 +11,7 @@ router.get('/', function (req, res, next) {
     })
 });
 router.get('/index', function (req, res, next) {
-    res.render('index', {
-        title: 'Express'
-    });
+    res.render('index', {title: 'Express'});
 });
 
 router.post('/upload', multer({
@@ -36,6 +34,6 @@ router.post('/uploads', multer({
         file.path = `upload/${file.originalname}`
         fileList.push(file)
     }
-    res.send(req.files)
+    res.send(fileList)
 })
 module.exports = router;
