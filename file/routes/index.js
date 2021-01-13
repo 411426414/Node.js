@@ -27,6 +27,13 @@ router.post('/upload', multer({
 router.post('/uploads', multer({
     dest: 'upload'
 }).array('file', 10), (req, res) => {
+    const files = req.files
+    const fileList = []
+    // for (var i in files) {
+    for (var i = 0; i < files.length; i++) {
+        let file = files[i]
+        fs.renameSync(file.path, `upload/${file.originalname}`)
+    }
     res.send(req.files)
 })
 module.exports = router;
