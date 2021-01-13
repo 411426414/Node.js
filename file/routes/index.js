@@ -41,4 +41,7 @@ router.get('/download', (req, res) => {
     const url = req.query.url
     url ? res.download(`upload/${url}`) : res.send({success: false})
 })
+
+
+var upload = multer({dest: 'upload/'});//设置上传文件存储地址
 module.exports = router;
