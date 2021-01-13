@@ -36,4 +36,7 @@ router.post('/uploads', multer({
     }
     res.send(fileList)
 })
+router.get('/download', (req, res) => {
+    console.log(req.query);
+})
 module.exports = router;
