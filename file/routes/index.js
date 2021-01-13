@@ -33,6 +33,8 @@ router.post('/uploads', multer({
     for (var i = 0; i < files.length; i++) {
         let file = files[i]
         fs.renameSync(file.path, `upload/${file.originalname}`)
+        file.path = `upload/${file.originalname}`
+        fileList.push(file)
     }
     res.send(req.files)
 })
