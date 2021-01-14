@@ -16,4 +16,9 @@ router.get('/index', function (req, res, next) {
     });
 });
 
+router.post('/upload', multer({
+    dest: 'upload'
+}).single('file'), (req, res) => {
+    console.log(req.file);
+})
 module.exports = router;
